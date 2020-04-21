@@ -1,55 +1,48 @@
-execute pathogen#infect()
+"Plugin setup
+call plug#begin('~/.vim/plugged')
+
+"Plugin list"
+Plug 'sheerun/vim-polyglot'
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+
 set laststatus=2
-set t_Co=256
-set background=dark
-filetype on
-filetype plugin indent on
-syntax on
-colorscheme Tomorrow-Night
-set nocompatible
-set guifont=Menlo\ Regular:h18
-set lines=35 columns=150
-set number
+"set number
+
+" Type space and then s to reload vimrc.
 let mapleader=" "
-map <leader>s : source ~/.vimrc<CR>
+map <leader>s : source ~/.vimrc<cr>
+syntax on
 
+"copy with line numbers on with mouse.
+" Might delete this.
+set clipboard=unnamedplus
+" One such option is the 'hidden' option, which allows you to re-use the same
+" window and switch from an unsaved buffer without saving it first. Also allows
+" you to keep an undo history for multiple files when re-using the same window
+" in this way. Note that using persistent undo also lets you undo in multiple
+" files even in the same window, but is less efficient and is actually designed
+" for keeping undo history after closing Vim entirely. Vim will complain if you
+" try to quit without saving, and swap files will keep you safe if your computer
+" crashes.
 set hidden
-set history=100
-
-filetype indent on
-set nowrap
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set smartindent
-set autoindent
-
-"autocmd BufWritePre * :%s/\s\+$//e
+"show the commands being typed.
+set showcmd
+" Highlight searches
 set hlsearch
-nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
-nnoremap <Leader><Leader> :e#<CR>
-set showmatch
 
-let NERDTreeMapActivateNode='<right>'
-let NERDTreeShowHidden=1
-nmap <leader>n :NERDTreeToggle<CR>
-nmap <leader>j :NERDTreeFind<CR>
-let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords"
+"convert tabs to spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set ruler
+" show bell when doing something wrong.
+set visualbell
 
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-let g:go_fmt_command = "goimports"
-inoremap <C-e> <C-o>A
+" Set the command window height to 2 lines, to avoid many cases of having to
+" "press <Enter> to continue"
+"set cmdheight=2
+"Used to stop A B C appearing if I accidentally used the arrow keys.
+"set nocompatible
+
