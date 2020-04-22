@@ -9,6 +9,18 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 
+"Swapfiles:
+Plug 'chrisbra/Recover.vim'
+Plug 'gergap/vim-konsole'
+Plug 'gioele/vim-autoswap'
+
+"Status line
+Plug 'vim-airline/vim-airline'
+
+"Moving about.
+Plug 'preservim/nerdtree'
+
+
 "Color schemes:
 Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
@@ -17,6 +29,7 @@ Plug 'NLKNguyen/papercolor-theme'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+set laststatus=2
 "set t_Co=256   " This is may or may not needed.
 set background=dark
 colorscheme PaperColor
@@ -52,7 +65,6 @@ set hlsearch
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set ruler
 " show bell when doing something wrong.
 set visualbell
 
@@ -87,6 +99,7 @@ set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -101,13 +114,14 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
+" Got rid of this as it was breaking enter in insert mode.
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+"if exists('*complete_info')
+"  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+"else
+"  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"endif
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -197,8 +211,15 @@ nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <space>j  :<C-u>CocNext<CR> " Do default action for previous item.  nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" status line stuff would be here.
+"set ruler
+"set statusline+=\ %f
+let airline#extensions#tabline#enabled = 1
+
+" Nerd tree
+let NERDTreeShowHidden=1
+nmap <C-n> :NERDTreeToggle<CR>
