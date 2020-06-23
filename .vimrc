@@ -26,6 +26,10 @@ Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
 
 
+"Python lint
+Plug 'tell-k/vim-autopep8'
+
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
