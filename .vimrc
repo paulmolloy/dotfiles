@@ -227,3 +227,5 @@ let airline#extensions#tabline#enabled = 1
 " Nerd tree
 let NERDTreeShowHidden=1
 nmap <C-n> :NERDTreeToggle<CR>
+
+let g:coc_node_path =  '/usr/local/lib/nodejs/node-v12.16.2-linux-x64/bin/node'
