@@ -2,3 +2,6 @@
 	path = dotbot
 	url = git@github.com:anishathalye/dotbot.git
 	ignore = dirty
+[submodule "dotbot-sudo"]
+	path = dotbot-sudo
+	url = https://github.com/DrDynamic/dotbot-sudo.git
