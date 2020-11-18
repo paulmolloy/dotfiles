@@ -14,7 +14,13 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
-sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -p ${BASEDIR}/dotbot-sudo/sudo.py -d "${BASEDIR}" -c "${CONFIG_SUDO}" "${@}"
+#sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -p ${BASEDIR}/dotbot-sudo/sudo.py -d "${BASEDIR}" -c "${CONFIG_SUDO}" "${@}"
+
+sudo cp -r etcsystemduser/rclone /etc/systemd/user/
+
+sudo systemctl enable /etc/systemd/user/rclone/rclone-photos-psm.service 
+sudo systemctl enable /etc/systemd/user/rclone/rclone-psm.service 
+sudo systemctl enable /etc/systemd/user/rclone/rclone-tcd.service 
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -p ${BASEDIR}/dotbot-sudo/sudo.py -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 
