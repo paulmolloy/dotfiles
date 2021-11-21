@@ -69,6 +69,8 @@ set hlsearch
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+set softtabstop=4 expandtab
 " show bell when doing something wrong.
 set visualbell
 
