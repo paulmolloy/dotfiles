@@ -9,6 +9,9 @@
     ~/.tmux.conf: .tmux.conf
     ~/.vim: .vim
     ~/.vimrc: .vimrc
+    ~/.antigen.zsh: .antigen.zsh
+    ~/.antigenrc: .antigenrc
+    ~/.zshrc: .zshrc
 
 - create:
     - ~/.vim/undo-history

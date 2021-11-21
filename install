@@ -18,9 +18,9 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 
 sudo cp -r etcsystemduser/rclone /etc/systemd/user/
 
-sudo systemctl enable /etc/systemd/user/rclone/rclone-photos-psm.service 
-sudo systemctl enable /etc/systemd/user/rclone/rclone-psm.service 
-sudo systemctl enable /etc/systemd/user/rclone/rclone-tcd.service 
+systemctl --user enable rclone-photos-psm.service 
+systemctl --user enable rclone-psm.service 
+systemctl --user enable rclone-tcd.service 
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -p ${BASEDIR}/dotbot-sudo/sudo.py -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 
